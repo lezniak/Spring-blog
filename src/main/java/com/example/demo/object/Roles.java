@@ -6,8 +6,9 @@ import javax.persistence.*;
 @Entity
 public class Roles {
 
-    public Roles(Integer role_id) {
+    public Roles(Integer role_id, String name) {
         this.role_id = role_id;
+        this.name = name;
     }
 
     @Id
