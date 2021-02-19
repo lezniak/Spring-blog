@@ -5,6 +5,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.web.bind.annotation.RequestParam;
 
+
 public interface userRepository extends CrudRepository<User, Long> {
 
     @Query("SELECT u FROM User u WHERE u.email = :email")
