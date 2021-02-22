@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.object.Roles;
 import com.example.demo.object.User;
+import com.example.demo.repository.postRepository;
 import com.example.demo.repository.roleRepository;
 import com.example.demo.repository.userRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Controller
 public class MainController {
@@ -18,15 +21,13 @@ public class MainController {
     @Autowired
     private userRepository userRepository;
 
-
-    // Login form
-    @RequestMapping("/login")
-    public String login() {
-        return "login.html";
-    }
+    @Autowired
+    private postRepository postRepository;
 
     @RequestMapping("/")
     public String index() {
+        List lista = postRepository.findAll();
+        System.out.println(lista.get(0));
         return "index.html";
     }
     // reigster form
