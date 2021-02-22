@@ -16,5 +16,10 @@ INDEX PAGE
     </form>
 </div>
 
+<tr  th:each="lista, state : ${lista}" >
+    <td th:utext="${lista.getContent()}">Full Name</td>
+
+</tr>
+
 </body>
 </html>

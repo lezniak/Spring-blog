@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import com.example.demo.object.Post;
 import com.example.demo.object.Roles;
 import com.example.demo.object.User;
 import com.example.demo.repository.postRepository;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -25,9 +27,11 @@ public class MainController {
     private postRepository postRepository;
 
     @RequestMapping("/")
-    public String index() {
-        List lista = postRepository.findAll();
-        System.out.println(lista.get(0));
+    public String index(Model model) {
+        List<Post> lista = new ArrayList();
+        postRepository.findAll().forEach(lista::add);
+        System.out.println(lista.get(0).getContent());
+        model.addAttribute("lista",lista);
         return "index.html";
     }
     // reigster form
