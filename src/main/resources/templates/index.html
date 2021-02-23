@@ -15,10 +15,11 @@ INDEX PAGE
         <input type="submit" value="Logout" />
     </form>
 </div>
-
+<br><br>
 <tr  th:each="lista, state : ${lista}" >
+    <div>
     <td th:utext="${lista.getContent()}">Full Name</td>
-
+    </div>
 </tr>
 
 </body>

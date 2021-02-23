@@ -43,7 +43,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.httpBasic().and().authorizeRequests()
                 .antMatchers("/").permitAll()
                 .antMatchers("/login").not().hasAnyRole("USER","MODERATOR","WRITER")
-                .antMatchers("/register").anonymous()
+                .antMatchers("/register").permitAll()
                 .anyRequest().hasRole("ADMIN")
                 .and()
                 .formLogin().permitAll()
