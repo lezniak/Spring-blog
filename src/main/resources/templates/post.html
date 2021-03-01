@@ -1,10 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Blog</title>
 </head>
 <body>
 <p style="text-align: center"><h1> Post Ceneter</h1></p>
+<form  th:action="@{/posts}"  method="post">
+    <input type="text" name="content" placeholder="content" /><br>
+    <input type="submit" value="Submit" /><input type="submit" value="clear" />
+</form>
 </body>
 </html>

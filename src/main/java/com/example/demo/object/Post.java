@@ -1,11 +1,13 @@
 package com.example.demo.object;
 
-import org.w3c.dom.Text;
+import org.springframework.data.annotation.CreatedBy;
+import org.springframework.data.annotation.CreatedDate;
+import com.example.demo.object.User;
+import javax.persistence.*;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 
 @Entity
 public class Post {
@@ -13,15 +15,8 @@ public class Post {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id_post;
     private String content;
-    private Integer author;
-
-    public Post() {
-    }
-
-    public Post(String content, Integer author) {
-        this.content = content;
-        this.author = author;
-    }
+    @CreatedDate
+    private LocalDateTime createdDate;
 
     public Integer getId_post() {
         return id_post;
@@ -34,12 +29,9 @@ public class Post {
     public void setContent(String content) {
         this.content = content;
     }
+    
 
-    public Integer getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(Integer author) {
-        this.author = author;
+    public void setCreatedDate(LocalDateTime createdDate) {
+        this.createdDate = createdDate;
     }
 }
