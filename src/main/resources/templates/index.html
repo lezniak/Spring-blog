@@ -52,7 +52,7 @@
     </form>
 </div>
 
-<div sec:authorize="hasAnyAuthority('AUTHOR', 'MODERATOR')">
+<div sec:authorize="hasAnyAuthority('AUTHOR')">
     <a href="/posts">Create new Post</a>
 </div>
 
@@ -65,7 +65,7 @@
                     <div>
 
                 <li>
-                    <a href="#">Awesome Employers</a>
+                    <a href="#"><td th:utext="${lista.getTitle}">Title</td></a>
                     <p class="float-right"><td th:utext="${lista.getCreatedDate()}">Post Created date</td></a>
                     <p><td th:utext="${lista.getContent()}">Post content</td></p>
                 </li>

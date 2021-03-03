@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Controller
@@ -30,7 +31,7 @@ public class MainController {
     public String index(Model model) {
         List<Post> lista = new ArrayList();
         postRepository.findAll().forEach(lista::add);
-        System.out.println(lista.get(0).getContent());
+        Collections.reverse(lista);
         model.addAttribute("lista", lista);
         return "index.html";
     }

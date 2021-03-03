@@ -14,9 +14,18 @@ public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id_post;
+    private String title;
     private String content;
     @CreatedDate
     private LocalDateTime createdDate;
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
     public Integer getId_post() {
         return id_post;

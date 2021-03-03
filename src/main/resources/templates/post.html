@@ -7,7 +7,8 @@
 <body>
 <p style="text-align: center"><h1> Post Ceneter</h1></p>
 <form  th:action="@{/posts}"  method="post">
-    <input type="text" name="content" placeholder="content" /><br>
+    <input type="text" name="title" placeholder="title" /><br>
+    <textarea id="content" name="content" rows="4" cols="50"></textarea><br>
     <input type="submit" value="Submit" /><input type="submit" value="clear" />
 </form>
 </body>
