@@ -29,7 +29,10 @@ public class Post {
     public void setContent(String content) {
         this.content = content;
     }
-    
+
+    public LocalDateTime getCreatedDate() {
+        return createdDate;
+    }
 
     public void setCreatedDate(LocalDateTime createdDate) {
         this.createdDate = createdDate;

@@ -52,6 +52,9 @@
     </form>
 </div>
 
+<div sec:authorize="hasRole('ROLE_USER')">
+    This content is only shown to users.
+</div>
 
 <div class="container mt-5 mb-5">
     <div class="row">
@@ -63,7 +66,7 @@
 
                 <li>
                     <a href="#">Awesome Employers</a>
-                    <a href="#" class="float-right">1 April, 2014</a>
+                    <p class="float-right"><td th:utext="${lista.getCreatedDate()}">Post Created date</td></a>
                     <p><td th:utext="${lista.getContent()}">Post content</td></p>
                 </li>
                     </div>
