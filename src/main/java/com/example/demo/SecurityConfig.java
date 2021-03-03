@@ -42,16 +42,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception{
         http.httpBasic().and().authorizeRequests()
                 .antMatchers("/").permitAll()
-                .antMatchers("/login").not().hasAnyRole("USER","MODERATOR","AUTHOR")
-                .antMatchers("/register").permitAll()
-                .antMatchers("/posts").hasRole("AUTHOR")
+                .antMatchers("/login").not().hasAnyAuthority("USER","MODERATOR","AUTHOR")
+                .antMatchers("/register").not().hasAnyAuthority("USER","MODERATOR","AUTHOR")
+                .antMatchers("/posts").hasAuthority("AUTHOR")
                 .and()
                 .formLogin().permitAll()
                 .and()
                 .logout().permitAll()
                 .logoutSuccessUrl("/")
                 .and()
-                .exceptionHandling().accessDeniedPage("/403");
+                .exceptionHandling().accessDeniedPage("/");
 
     }
 }

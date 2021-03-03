@@ -52,8 +52,8 @@
     </form>
 </div>
 
-<div sec:authorize="hasRole('ROLE_USER')">
-    This content is only shown to users.
+<div sec:authorize="hasAnyAuthority('AUTHOR', 'MODERATOR')">
+    <a href="/posts">Create new Post</a>
 </div>
 
 <div class="container mt-5 mb-5">
