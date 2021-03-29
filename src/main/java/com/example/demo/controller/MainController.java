@@ -6,7 +6,9 @@ import com.example.demo.object.User;
 import com.example.demo.repository.postRepository;
 import com.example.demo.repository.roleRepository;
 import com.example.demo.repository.userRepository;
+import com.example.demo.validation.registerValidator;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -57,7 +59,7 @@ public class MainController {
     @PostMapping(value = "/register")
     public String registerPost(Model model, @ModelAttribute("User") User user){
         User userCheck =  userRepository.findByEmail(user.getEmail());
-        if(!(null == userCheck) || user.getPassword().length()>20 || user.getEmail().length()>40 || user.getName().length()>20 || user.getSurname().length()>20){
+        if(!(null == userCheck) || user.getPassword().length()>20 || registerValidator.isNoLegit(user) || user.getName().length()>20 || user.getSurname().length()>20){
             return "redirect:/register?condition=error";
         }
 
